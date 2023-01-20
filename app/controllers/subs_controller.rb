@@ -41,7 +41,7 @@ class SubsController < ApplicationController
     if @sub.moderator_id == current_user.id && @sub.update(sub_params)
       redirect_to subs_url
     else
-      flash[:errors] = ['Something went wrong!']
+      flash[:errors] = @sub.errors.full_messages
       render :edit
     end
   end
