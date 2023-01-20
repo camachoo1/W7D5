@@ -1,0 +1,9 @@
+<h1>All Subs</h1>
+<ul>
+  <% @subs.each do |sub| %>
+    <a href="<%= sub_url(sub)%>">
+      <%= sub.title %>
+    </a>
+    <br>
+  <% end %>
+</ul>
