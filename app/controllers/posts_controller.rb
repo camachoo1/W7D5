@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     if @post.author_id == current_user.id && @post.update(post_params)
       redirect_to posts_url
     else
-      flash[:errors] = ['Something went wrong!']
+      flash[:errors] = @post.errors.full_messages
       render :edit
     end
   end
