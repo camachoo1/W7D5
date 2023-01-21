@@ -1,0 +1,19 @@
+<% url = action == :new ? posts_url : post_url(post) %>
+<% button_value = action == :new ? "Create Post" : "Save Edited Post" %>
+<form action = "<%= url  %>" method="POST">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <label>Title:
+    <input type="text" name="post[title]" value ="<%= @post.title  %>">
+  </label>
+  <br>
+  <label>URL:
+    <input type="text" name="post[url]" value ="<%= @post.url %>">
+  </label>
+  <br>
+  <label>Content
+    <textarea name="post[content]"><%= @post.content %></textarea>
+  </label>
+  <button><%= button_value %></button>
+</form>
